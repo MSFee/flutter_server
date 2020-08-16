@@ -10,4 +10,5 @@ module.exports = app => {
   router.get('/game', controller.game.index);
   router.get('/car', controller.car.index);
   router.get('/animal', controller.animal.index);
+  router.get('/getListData', controller.listData.index);
 };
