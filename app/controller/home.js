@@ -19,7 +19,7 @@ class HomeController extends Controller {
     let result = await this.app.mysql.select(
       'girlsList_info',
       {
-        limit: 30,
+        limit: 5,
       }
     );
     ctx.body = result;
