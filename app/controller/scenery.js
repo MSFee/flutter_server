@@ -7,19 +7,10 @@ const Controller = require('egg').Controller;
 class HomeController extends Controller {
   async index() {
     const { ctx } = this;
-    const data = await  getAllData();
-    for(let i = 0; i < data.length; i++) {
-         await this.app.mysql.insert('animal_info', {
-           imageUrl: data[i].imgUrl,
-           desc: data[i].desc,
-          //  much: data[i].much
-         })
-    }
-
     let result = await this.app.mysql.select(
-      'girlsList_info',
+      'scenery_info',
       {
-        limit: 5,
+        limit: 10,
       }
     );
     ctx.body = result;

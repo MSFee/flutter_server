@@ -13,7 +13,7 @@ const getHotNews = (res) => {
     let $ = cherrio.load(res);
     $('div.slist ul li a img').each((idx, ele) => {
         let news = {
-            imgUrl: `http://pic.netbian.com/${$(ele).attr('src')}`,
+            imgUrl: `http://pic.netbian.com${$(ele).attr('src')}`,
             desc:  $(ele).attr('alt'),
             much: getRandomMuch(),
         };
@@ -24,7 +24,7 @@ const getHotNews = (res) => {
 
 function  getData(index = 1) {
     return new Promise((resolve, reject) => {
-        http.get(`http://pic.netbian.com/4kmeinv/index_${index}.html`,function(res){
+        http.get(`http://pic.netbian.com/4kdongwu/index_${index}.html`,function(res){
             var htmlData=[];//用于接收获取到的网页
             var htmlDataLength=0;
             res.on('data',function(chunk){
@@ -41,7 +41,6 @@ function  getData(index = 1) {
             })
         })
     })
-
 };
 
 async function getAllData() {
